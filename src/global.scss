@@ -1,0 +1,9 @@
+@use "./reset";
+@use "./colors" as *;
+
+body,
+html {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: $primary_color;
+}
