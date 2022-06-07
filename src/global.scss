@@ -2,7 +2,8 @@
 @use "./colors" as *;
 
 body,
-html {
+html,
+#root {
   min-width: 100vw;
   min-height: 100vh;
   background-color: $primary_color;
