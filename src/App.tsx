@@ -1,8 +1,9 @@
-import React from "react";
+import TimeLine from "./component/TimeLine/TimeLine";
 
 export default function App() {
   return (
-    <div>
+    <div className={style.container}>
+      <TimeLine />
     </div>
   );
 }
