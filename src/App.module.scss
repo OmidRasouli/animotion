@@ -4,5 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  height: 100%;
+
+  .viewport {
+    width: 100vw;
+    height: 100%;
+  }
 }
