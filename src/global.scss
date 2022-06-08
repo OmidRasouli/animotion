@@ -1,0 +1,11 @@
+@use "./reset";
+@use "./colors" as *;
+
+body,
+html,
+#root {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: $primary_color;
+  overflow: hidden;
+}

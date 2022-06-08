@@ -1,7 +1,11 @@
-import React from "react";
+import TimeLine from "./component/TimeLine/TimeLine";
+import style from "./App.module.scss";
 
-function App() {
-  return <div></div>;
+export default function App() {
+  return (
+    <div className={style.container}>
+      <div className={style.viewport}></div>
+      <TimeLine />
+    </div>
+  );
 }
-
-export default App;
