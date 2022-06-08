@@ -5,8 +5,8 @@ import style from "./TimeLine.module.scss";
 export default function TimeLine(): JSX.Element {
   const parent = useRef<HTMLDivElement>(null);
   const [draggable, setDraggable] = useState<boolean>(false);
-  const [timeSliderGhost, setTimeSliderGhost] = useState<number>(8);
-  const [timeSlider, setTimeSlider] = useState<number>(8);
+  const [timeSliderGhost, setTimeSliderGhost] = useState<number>(12);
+  const [timeSlider, setTimeSlider] = useState<number>(12);
   const [timelineHeight, setTimelineHeight] = useState<number>(
     window.innerHeight * 0.3
   );
@@ -29,7 +29,9 @@ export default function TimeLine(): JSX.Element {
       parent?.current?.getBoundingClientRect().left ?? 0;
     //Remove property box from left and padding
     setTimeSliderGhost(
-      event.currentTarget.getBoundingClientRect().left - parentLeft
+      event.currentTarget.getBoundingClientRect().left -
+        parentLeft +
+        event.currentTarget.clientWidth * 0.5
     );
   };
 
@@ -38,7 +40,9 @@ export default function TimeLine(): JSX.Element {
       parent?.current?.getBoundingClientRect().left ?? 0;
     //Remove property box from left and padding
     setTimeSlider(
-      event.currentTarget.getBoundingClientRect().left - parentLeft
+      event.currentTarget.getBoundingClientRect().left -
+        parentLeft +
+        event.currentTarget.clientWidth * 0.5
     );
   };
 
@@ -63,6 +67,7 @@ export default function TimeLine(): JSX.Element {
           <div
             className={style["timer-slider"]}
             style={{ left: timeSlider }}
+            onScrollCapture={(e) => console.log(e)}
           ></div>
           <div
             className={`${style["timer-slider"]} ${style["ghost"]}`}
@@ -78,7 +83,7 @@ export default function TimeLine(): JSX.Element {
                   onClick={TimerSliderPosition}
                   onMouseDown={TimerSliderPosition}
                 >
-                  {x}
+                  <i>{x}</i>
                 </span>
               ) : (
                 <span
