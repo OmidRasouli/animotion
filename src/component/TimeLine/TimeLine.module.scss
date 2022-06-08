@@ -22,11 +22,96 @@
     min-height: 200px;
     background-color: $primary_color;
     background-color: $black_overlay_50;
+    padding-top: 3px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+
     .resizer {
       width: 100%;
       height: 3px;
       cursor: ns-resize;
       background-color: $black;
+      position: absolute;
+      top: 0;
+    }
+
+    .frames {
+      flex-grow: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      .timer-slider {
+        width: 1px;
+        top: 0;
+        bottom: 0;
+        left: 8px;
+        position: absolute;
+        background-color: $text_color;
+
+        &.ghost {
+          background-color: $white_overlay_50;
+        }
+      }
+
+      .timer {
+        display: flex;
+        padding: 0 8px 0;
+        box-sizing: border-box;
+        height: 30px;
+        border-bottom: 3px solid $black_overlay_50;
+
+        span {
+          color: $text_color;
+          font-size: 0.8em;
+          flex-basis: 25px;
+          width: 25px;
+          user-select: none;
+          line-height: 30px;
+          margin-top: -7px;
+
+          &:before {
+            content: "";
+            height: 5px;
+            width: 1px;
+            background-color: $white_overlay_10;
+            display: inline-block;
+            margin-bottom: -10px;
+          }
+
+          &.numbered::before {
+            background-color: $white_overlay_30;
+            height: 7px;
+          }
+        }
+      }
+
+      .keyframes {
+        display: flex;
+        padding: 0 8px;
+        box-sizing: border-box;
+        height: 100%;
+
+        span {
+          color: $text_color;
+          font-size: 0.8em;
+          flex-basis: 25px;
+          width: 25px;
+
+          &:before {
+            content: "";
+            height: 100%;
+            width: 1px;
+            background-color: $white_overlay_10;
+            display: inline-block;
+          }
+
+          &.bold-line::before {
+            background-color: $white_overlay_30;
+          }
+        }
+      }
     }
   }
 }
