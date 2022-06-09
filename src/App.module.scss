@@ -1,3 +1,5 @@
+@use "./colors" as *;
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -8,5 +10,18 @@
   .viewport {
     width: 100vw;
     flex-grow: 1;
+    display: flex;
+
+    .result {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .output {
+        width: 200px;
+        height: 200px;
+        background-color: $accent_color;
+      }
+    }
   }
 }
