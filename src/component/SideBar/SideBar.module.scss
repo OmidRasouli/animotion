@@ -1,0 +1,7 @@
+@use "../../colors" as *;
+
+.sidebar {
+  width: 300px;
+  background-color: $black_overlay_50;
+  border-left: 3px solid $black;
+}

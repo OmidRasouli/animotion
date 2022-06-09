@@ -1,35 +1,39 @@
 @use "../../colors" as *;
 
-.overlay {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+.test {
   min-height: 200px;
-
-  &.active {
-    cursor: ns-resize;
-    height: 100vh;
-  }
-
-  .timeline {
+  .overlay {
     width: 100%;
-    height: 30vh;
     min-height: 200px;
-    background-color: $primary_color;
-    background-color: $black_overlay_50;
-    padding-top: 3px;
-    position: relative;
-    box-sizing: border-box;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
 
-    .resizer {
-      width: 100%;
-      height: 3px;
+    &.active {
       cursor: ns-resize;
-      background-color: $black;
-      position: absolute;
-      top: 0;
+      height: 100vh;
+    }
+
+    .timeline {
+      width: 100%;
+      height: 30vh;
+      min-height: 200px;
+      background-color: $primary_color;
+      background-color: $black_overlay_50;
+      padding-top: 3px;
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+
+      .resizer {
+        width: 100%;
+        height: 3px;
+        cursor: ns-resize;
+        background-color: $black;
+        position: absolute;
+        top: 0;
+      }
     }
   }
 }
