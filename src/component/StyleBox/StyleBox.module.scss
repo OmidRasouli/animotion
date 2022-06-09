@@ -1,0 +1,14 @@
+@use "../../colors" as *;
+
+.box {
+  width: 100%;
+  min-height: 200px;
+  border-bottom: 3px solid $black;
+  .title {
+    box-sizing: border-box;
+    color: $text_color;
+    padding: 5px;
+    border-bottom: 3px solid $black;
+    border-top: 3px solid $black;
+  }
+}
