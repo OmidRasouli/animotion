@@ -1,9 +1,7 @@
 @use "../../colors" as *;
 
 .overlay {
-  position: absolute;
   width: 100%;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -11,8 +9,6 @@
 
   &.active {
     cursor: ns-resize;
-    background-color: $black_overlay_50;
-    transition: background-color 150ms;
     height: 100vh;
   }
 
@@ -34,101 +30,6 @@
       background-color: $black;
       position: absolute;
       top: 0;
-    }
-
-    .frames {
-      flex-grow: 1;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-
-      .timer-slider {
-        width: 1px;
-        top: 0;
-        bottom: 0;
-        left: 8px;
-        position: absolute;
-        background-color: $text_color;
-        pointer-events: none;
-
-        &::before {
-          content: "";
-          border-top: 5px solid $text_color;
-          border-right: 5px solid transparent;
-          border-left: 5px solid transparent;
-          display: block;
-          margin-left: -4px;
-        }
-
-        &.ghost {
-          background-color: $white_overlay_50;
-        }
-      }
-
-      .timer {
-        display: flex;
-        box-sizing: border-box;
-        height: 30px;
-        border-bottom: 3px solid $black_overlay_50;
-
-        span {
-          color: $text_color;
-          font-size: 0.8em;
-          flex-basis: 25px;
-          width: 25px;
-          user-select: none;
-          line-height: 30px;
-          display: flex;
-          flex-direction: column-reverse;
-          align-items: center;
-
-          &:before {
-            content: "";
-            height: 5px;
-            width: 1px;
-            background-color: $white_overlay_10;
-          }
-
-          &.numbered {
-            i {
-              height: 25px;
-              margin-left: 8px;
-            }
-            &::before {
-              background-color: $white_overlay_30;
-              height: 7px;
-              flex-shrink: 0;
-            }
-          }
-        }
-      }
-
-      .keyframes {
-        display: flex;
-        box-sizing: border-box;
-        height: 100%;
-
-        span {
-          color: $text_color;
-          font-size: 0.8em;
-          flex-basis: 25px;
-          width: 25px;
-          display: flex;
-          justify-content: center;
-
-          &:before {
-            content: "";
-            height: 100%;
-            width: 1px;
-            background-color: $white_overlay_10;
-            display: inline-block;
-          }
-
-          &.bold-line::before {
-            background-color: $white_overlay_30;
-          }
-        }
-      }
     }
   }
 }
