@@ -1,7 +1,6 @@
 @use "../../colors" as *;
 
 .overlay {
-  position: absolute;
   width: 100%;
   bottom: 0;
   display: flex;
@@ -11,8 +10,6 @@
 
   &.active {
     cursor: ns-resize;
-    background-color: $black_overlay_50;
-    transition: background-color 150ms;
     height: 100vh;
   }
 
@@ -48,19 +45,24 @@
         bottom: 0;
         left: 8px;
         position: absolute;
-        background-color: $text_color;
+        background-color: $accent_color;
         pointer-events: none;
 
         &::before {
           content: "";
-          border-top: 5px solid $text_color;
+          border-top: 5px solid $accent_color;
           border-right: 5px solid transparent;
           border-left: 5px solid transparent;
           display: block;
-          margin-left: -4px;
+          margin-left: -4.5px;
         }
 
         &.ghost {
+          &::before {
+            border-top: 5px solid $white_overlay_50;
+            margin-top: -5px;
+          }
+          top: 5px;
           background-color: $white_overlay_50;
         }
       }
@@ -69,13 +71,13 @@
         display: flex;
         box-sizing: border-box;
         height: 30px;
-        border-bottom: 3px solid $black_overlay_50;
+        border-bottom: 3px solid $black;
 
         span {
           color: $text_color;
           font-size: 0.8em;
-          flex-basis: 25px;
-          width: 25px;
+          flex-basis: 15px;
+          width: 15px;
           user-select: none;
           line-height: 30px;
           display: flex;
@@ -111,8 +113,8 @@
         span {
           color: $text_color;
           font-size: 0.8em;
-          flex-basis: 25px;
-          width: 25px;
+          flex-basis: 15px;
+          width: 15px;
           display: flex;
           justify-content: center;
 

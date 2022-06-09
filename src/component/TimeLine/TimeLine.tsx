@@ -5,8 +5,8 @@ import style from "./TimeLine.module.scss";
 export default function TimeLine(): JSX.Element {
   const parent = useRef<HTMLDivElement>(null);
   const [draggable, setDraggable] = useState<boolean>(false);
-  const [timeSliderGhost, setTimeSliderGhost] = useState<number>(12);
-  const [timeSlider, setTimeSlider] = useState<number>(12);
+  const [timeSliderGhost, setTimeSliderGhost] = useState<number>(7);
+  const [timeSlider, setTimeSlider] = useState<number>(7);
   const [timelineHeight, setTimelineHeight] = useState<number>(
     window.innerHeight * 0.3
   );
@@ -81,7 +81,6 @@ export default function TimeLine(): JSX.Element {
                   className={style.numbered}
                   onMouseOver={TimerSliderPositionPrev}
                   onClick={TimerSliderPosition}
-                  onMouseDown={TimerSliderPosition}
                 >
                   <i>{x}</i>
                 </span>
@@ -90,7 +89,6 @@ export default function TimeLine(): JSX.Element {
                   key={x}
                   onMouseOver={TimerSliderPositionPrev}
                   onClick={TimerSliderPosition}
-                  onMouseDown={TimerSliderPosition}
                 ></span>
               )
             )}
@@ -101,7 +99,6 @@ export default function TimeLine(): JSX.Element {
                 key={x}
                 onMouseOver={TimerSliderPositionPrev}
                 onClick={TimerSliderPosition}
-                onMouseDown={TimerSliderPosition}
                 className={x % 5 === 0 ? style["bold-line"] : ""}
               ></span>
             ))}
