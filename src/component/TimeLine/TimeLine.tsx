@@ -23,23 +23,29 @@ export default function TimeLine(): JSX.Element {
   };
 
   return (
-    <div
-      className={`${style.overlay} ${draggable && style.active}`}
-      style={{ height: draggable ? "100vh" : timelineHeight }}
-      onMouseMove={ResizeTimeLine}
-      onMouseUp={() => setDraggable(false)}
-    >
-      <div className={style.timeline} style={{ height: timelineHeight }}>
-        <div
-          className={style.resizer}
-          onMouseDown={() => setDraggable(true)}
-          onMouseUp={() => setDraggable(false)}
-        />
+    <div className={style.test} style={{ height: timelineHeight }}>
+      <div
+        className={`${style.overlay} ${draggable && style.active}`}
+        style={{
+          height: draggable ? window.innerHeight : timelineHeight,
+          top: draggable ? 0 : "auto",
+          bottom: draggable ? "auto" : 0,
+        }}
+        onMouseMove={ResizeTimeLine}
+        onMouseUp={() => setDraggable(false)}
+      >
+        <div className={style.timeline} style={{ height: timelineHeight }}>
+          <div
+            className={style.resizer}
+            onMouseDown={() => setDraggable(true)}
+            onMouseUp={() => setDraggable(false)}
+          />
 
-        <PropertyBox
-          items={[]} //[0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]}
-        ></PropertyBox>
-        <FrameTimer parent={parent} />
+          <PropertyBox
+            items={[]} //[0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]}
+          ></PropertyBox>
+          <FrameTimer parent={parent} />
+        </div>
       </div>
     </div>
   );
