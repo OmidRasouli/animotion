@@ -12,3 +12,28 @@ $white_overlay_10: rgba(255, 255, 255, 0.1);
 $black: #000;
 $white: #fff;
 $time_lines: #595b5e;
+
+@mixin gDarkToLight {
+  background: #ffffff;
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    #ffffff 0%,
+    #ffffff 18%,
+    #686363 100%
+  );
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    #ffffff 0%,
+    #ffffff 18%,
+    #686363 100%
+  );
+  background: radial-gradient(
+    ellipse at center,
+    #ffffff 0%,
+    #ffffff 18%,
+    #686363 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#686363',GradientType=1 );
+}
