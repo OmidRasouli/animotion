@@ -44,33 +44,25 @@ export default function FrameTimer({
         style={{ left: timeSliderGhost }}
       ></div>
       <div className={style.timer}>
-        {percent.map((x) =>
-          x % 5 === 0 ? (
+        {percent.map((x) => (
+          <div>
             <span
               key={x}
-              className={style.numbered}
+              className={`${style.numbers} ${style.numbered}`}
               onMouseOver={TimerSliderPositionPrev}
               onClick={TimerSliderPosition}
             >
-              <i>{x}</i>
+              <i>{x % 5 === 0 ? x : ""}</i>
             </span>
-          ) : (
             <span
               key={x}
               onMouseOver={TimerSliderPositionPrev}
               onClick={TimerSliderPosition}
+              className={`${style.lines} ${
+                x % 5 === 0 ? style["bold-line"] : ""
+              }`}
             ></span>
-          )
-        )}
-      </div>
-      <div className={style.keyframes}>
-        {percent.map((x) => (
-          <span
-            key={x}
-            onMouseOver={TimerSliderPositionPrev}
-            onClick={TimerSliderPosition}
-            className={x % 5 === 0 ? style["bold-line"] : ""}
-          ></span>
+          </div>
         ))}
       </div>
     </div>
