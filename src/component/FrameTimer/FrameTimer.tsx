@@ -6,20 +6,8 @@ export default function FrameTimer({
 }: {
   parent: RefObject<HTMLDivElement>;
 }) {
-  const [timeSliderGhost, setTimeSliderGhost] = useState<number>(7);
   const [timeSlider, setTimeSlider] = useState<number>(7);
   const percent: Array<number> = Array.from({ length: 101 }, (_, i) => i);
-
-  const TimerSliderPositionPrev = (event: MouseEvent<HTMLSpanElement>) => {
-    const parentLeft: number =
-      parent?.current?.getBoundingClientRect().left ?? 0;
-    //Remove property box from left and padding
-    setTimeSliderGhost(
-      event.currentTarget.getBoundingClientRect().left -
-        parentLeft +
-        event.currentTarget.clientWidth * 0.5
-    );
-  };
 
   const TimerSliderPosition = (event: MouseEvent<HTMLSpanElement>) => {
     const parentLeft: number =
@@ -39,25 +27,19 @@ export default function FrameTimer({
         style={{ left: timeSlider }}
         onScrollCapture={(e) => console.log(e)}
       ></div>
-      <div
-        className={`${style["timer-slider"]} ${style["ghost"]}`}
-        style={{ left: timeSliderGhost }}
-      ></div>
       <div className={style.timer}>
         {percent.map((x) => (
           <div>
             <span
               key={x}
               className={`${style.numbers} ${style.numbered}`}
-              onMouseOver={TimerSliderPositionPrev}
-              onClick={TimerSliderPosition}
+              // onClick={TimerSliderPosition}
             >
               <i>{x % 5 === 0 ? x : ""}</i>
             </span>
             <span
               key={x}
-              onMouseOver={TimerSliderPositionPrev}
-              onClick={TimerSliderPosition}
+              //onClick={TimerSliderPosition}
               className={`${style.lines} ${
                 x % 5 === 0 ? style["bold-line"] : ""
               }`}
