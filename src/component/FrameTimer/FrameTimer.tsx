@@ -6,7 +6,8 @@ export default function FrameTimer({
 }: {
   parent: RefObject<HTMLDivElement>;
 }) {
-  const [timeSlider, setTimeSlider] = useState<number>(7);
+  const width: number = 15;
+  const margin: number = 7;
   const percent: Array<number> = Array.from({ length: 101 }, (_, i) => i);
 
   const TimerSliderPosition = (event: MouseEvent<HTMLSpanElement>) => {
