@@ -1,4 +1,4 @@
-import { useState, RefObject, MouseEvent } from "react";
+import { useState, RefObject, ChangeEvent } from "react";
 import style from "./FrameTimer.module.scss";
 
 export default function FrameTimer({
@@ -8,39 +8,23 @@ export default function FrameTimer({
 }) {
   const width: number = 15;
   const margin: number = 7;
+  const [timeSlider, setTimeSlider] = useState<number>(margin);
   const percent: Array<number> = Array.from({ length: 101 }, (_, i) => i);
 
-  const TimerSliderPosition = (event: MouseEvent<HTMLSpanElement>) => {
-    const parentLeft: number =
-      parent?.current?.getBoundingClientRect().left ?? 0;
-    //Remove property box from left and padding
-    setTimeSlider(
-      event.currentTarget.getBoundingClientRect().left -
-        parentLeft +
-        event.currentTarget.clientWidth * 0.5
-    );
+  const TimerSliderPosition = (event: ChangeEvent<HTMLInputElement>) => {
+    setTimeSlider(+event.currentTarget.value * width + margin);
   };
 
   return (
     <div className={style.frames} ref={parent}>
-      <div
-        className={style["timer-slider"]}
-        style={{ left: timeSlider }}
-        onScrollCapture={(e) => console.log(e)}
-      ></div>
+      <div className={style["timer-slider"]} style={{ left: timeSlider }}></div>
       <div className={style.timer}>
-        {percent.map((x) => (
-          <div>
-            <span
-              key={x}
-              className={`${style.numbers} ${style.numbered}`}
-              // onClick={TimerSliderPosition}
-            >
+        {percent.map((x, key) => (
+          <div key={key}>
+            <span className={`${style.numbers} ${style.numbered}`}>
               <i>{x % 5 === 0 ? x : ""}</i>
             </span>
             <span
-              key={x}
-              //onClick={TimerSliderPosition}
               className={`${style.lines} ${
                 x % 5 === 0 ? style["bold-line"] : ""
               }`}
@@ -48,6 +32,13 @@ export default function FrameTimer({
           </div>
         ))}
       </div>
+      <input
+        type="range"
+        className={style["timer-slider-input"]}
+        min={0}
+        max={100}
+        onChange={TimerSliderPosition}
+      />
     </div>
   );
 }
