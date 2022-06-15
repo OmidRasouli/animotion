@@ -98,11 +98,13 @@
         }
       }
 
-      &:hover {
+      &.timerSliderHover {
         span.lines {
           &::before {
             margin-top: -20px;
             background-color: $white_overlay_50;
+            z-index: 1000;
+            pointer-events: none;
           }
 
           &::after {
