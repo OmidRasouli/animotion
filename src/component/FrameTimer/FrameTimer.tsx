@@ -29,11 +29,19 @@ export default function FrameTimer({
       ?.classList.add(style.timerSliderHover);
   };
 
+  const ClearTimerSliderHover = (event: MouseEvent) => {
+    const children = timerDiv.current?.querySelectorAll(
+      `.${style.timerSliderHover}`
+    );
+    children?.forEach((x) => x.classList.remove(style.timerSliderHover));
+  };
+
   return (
     <div
       className={style.frames}
       ref={parent}
       onMouseMove={TimerSliderMouseOver}
+      onMouseOut={ClearTimerSliderHover}
     >
       <div className={style["timer-slider"]} style={{ left: timeSlider }}></div>
       <div className={style.timer} ref={timerDiv}>
