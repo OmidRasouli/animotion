@@ -2,18 +2,18 @@ import { useState, useRef, RefObject, ChangeEvent, MouseEvent } from "react";
 import style from "./FrameTimer.module.scss";
 
 export default function FrameTimer({
-  parent,
+  SetAnimationTimer,
 }: {
-  parent: RefObject<HTMLDivElement>;
+  SetAnimationTimer: Function;
 }) {
   const width: number = 15;
   const margin: number = 7;
-  const [lastTimeSliderIndex, setLastTimeSliderIndex] = useState<number>(0);
   const [timeSlider, setTimeSlider] = useState<number>(margin);
   const percent: Array<number> = Array.from({ length: 101 }, (_, i) => i);
   const timerDiv = useRef<HTMLDivElement>(null);
 
   const TimerSliderPosition = (event: ChangeEvent<HTMLInputElement>) => {
+    SetAnimationTimer(+event.currentTarget.value);
     setTimeSlider(+event.currentTarget.value * width + margin);
   };
 
@@ -39,7 +39,6 @@ export default function FrameTimer({
   return (
     <div
       className={style.frames}
-      ref={parent}
       onMouseMove={TimerSliderMouseOver}
       onMouseOut={ClearTimerSliderHover}
     >

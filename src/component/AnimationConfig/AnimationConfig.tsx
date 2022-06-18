@@ -15,7 +15,8 @@ export default function AnimationConfig({
     direction: "",
   });
 
-  SetAnimationConfig = ({ config }: { config: Config }) => {
+  const SetConfig = ({ config }: { config: Config }) => {
+    SetAnimationConfig({ ...config });
     setAnimationConfigState({ ...config });
   };
 
@@ -27,7 +28,7 @@ export default function AnimationConfig({
           type={"text"}
           id={"name"}
           onChange={(e) =>
-            SetAnimationConfig({
+            SetConfig({
               config: { ...animationConfigState, name: e.target.value },
             })
           }
@@ -39,7 +40,7 @@ export default function AnimationConfig({
           type={"number"}
           id={"duration"}
           onChange={(e) =>
-            SetAnimationConfig({
+            SetConfig({
               config: {
                 ...animationConfigState,
                 duration: parseInt(e.target.value),
@@ -54,7 +55,7 @@ export default function AnimationConfig({
           type={"number"}
           id={"delay"}
           onChange={(e) =>
-            SetAnimationConfig({
+            SetConfig({
               config: {
                 ...animationConfigState,
                 delay: parseInt(e.target.value),
@@ -70,7 +71,7 @@ export default function AnimationConfig({
           min={-1}
           id={"iteration"}
           onChange={(e) =>
-            SetAnimationConfig({
+            SetConfig({
               config: {
                 ...animationConfigState,
                 iteration: parseInt(e.target.value),
@@ -84,7 +85,7 @@ export default function AnimationConfig({
         <select
           id={"direction"}
           onChange={(e) =>
-            SetAnimationConfig({
+            SetConfig({
               config: {
                 ...animationConfigState,
                 direction: e.target.value,
