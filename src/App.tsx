@@ -9,11 +9,7 @@ import { Config } from "./PublicFiles/Interfaces";
 export default function App() {
   const [animationTimer, setAnimationTimer] = useState<number>(0);
   const [animationConfig, setAnimationConfig] = useState<Config>({
-    delay: 0,
-    direction: "",
     duration: 0,
-    iteration: 0,
-    name: "",
   });
 
   return (

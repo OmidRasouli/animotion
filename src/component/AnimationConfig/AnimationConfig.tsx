@@ -8,11 +8,7 @@ export default function AnimationConfig({
   SetAnimationConfig: Function;
 }) {
   const [animationConfigState, setAnimationConfigState] = useState<Config>({
-    name: "",
     duration: 0,
-    delay: 0,
-    iteration: -1,
-    direction: "",
   });
 
   const SetConfig = ({ config }: { config: Config }) => {
