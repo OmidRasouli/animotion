@@ -3,8 +3,11 @@ import FrameTimer from "../FrameTimer/FrameTimer";
 import PropertyBox from "../PropertyBox/PropertyBox";
 import style from "./TimeLine.module.scss";
 
-export default function TimeLine(): JSX.Element {
-  const parent = useRef<HTMLDivElement>(null);
+export default function TimeLine({
+  SetAnimationTimer,
+}: {
+  SetAnimationTimer: Function;
+}): JSX.Element {
   const [draggable, setDraggable] = useState<boolean>(false);
   const [timelineHeight, setTimelineHeight] = useState<number>(
     window.innerHeight * 0.3
@@ -44,7 +47,7 @@ export default function TimeLine(): JSX.Element {
           <PropertyBox
             items={[]} //[0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]}
           ></PropertyBox>
-          <FrameTimer parent={parent} />
+          <FrameTimer SetAnimationTimer={SetAnimationTimer} />
         </div>
       </div>
     </div>

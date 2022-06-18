@@ -7,12 +7,9 @@ import Output from "./component/Output/Output";
 import { Config } from "./PublicFiles/Interfaces";
 
 export default function App() {
+  const [animationTimer, setAnimationTimer] = useState<number>(0);
   const [animationConfig, setAnimationConfig] = useState<Config>({
-    delay: 0,
-    direction: "",
     duration: 0,
-    iteration: 0,
-    name: "",
   });
 
   return (
@@ -20,11 +17,11 @@ export default function App() {
       <div className={style.viewport}>
         <AnimationConfig SetAnimationConfig={setAnimationConfig} />
         <div className={style.result}>
-          <Output config={animationConfig} />
+          <Output config={animationConfig} time={animationTimer} />
         </div>
         <SideBar />
       </div>
-      <TimeLine />
+      <TimeLine SetAnimationTimer={setAnimationTimer} />
     </div>
   );
 }
