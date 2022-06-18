@@ -1,13 +1,6 @@
 import { useState } from "react";
 import style from "./AnimationConfig.module.scss";
-
-interface Config {
-  name: string;
-  duration: number;
-  delay: number;
-  iteration: number;
-  direction: string;
-}
+import { Config } from "../../PublicFiles/Interfaces";
 
 export default function AnimationConfig() {
   const [animationConfig, setAnimationConfig] = useState<Config>({
