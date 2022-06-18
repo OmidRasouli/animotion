@@ -1,0 +1,14 @@
+@use "../../colors" as *;
+
+.output {
+  animation-direction: alternate;
+  animation-duration: 100s;
+  animation-fill-mode: none;
+  animation-iteration-count: infinite;
+  animation-name: animotion;
+  animation-play-state: paused;
+  animation-timing-function: linear;
+  width: 200px;
+  height: 200px;
+  background-color: $accent_color;
+}
