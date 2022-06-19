@@ -11,6 +11,8 @@ export default function App() {
   const [animationTimer, setAnimationTimer] = useState<number>(0);
   const [animationConfig, setAnimationConfig] = useState<Config>({
     duration: 0,
+    width: 100,
+    height: 100,
   });
 
   return (
@@ -20,7 +22,12 @@ export default function App() {
         <div className={style.result}>
           <Ruler orientation="horizontal" />
           <Ruler orientation="vertical" />
-          <Output config={animationConfig} time={animationTimer} />
+          <Output
+            config={animationConfig}
+            time={animationTimer}
+            width={animationConfig.width}
+            height={animationConfig.height}
+          />
         </div>
         <SideBar />
       </div>

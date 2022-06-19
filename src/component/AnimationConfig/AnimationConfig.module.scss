@@ -6,4 +6,23 @@
   border-right: 3px solid $black;
   border-top: 3px solid $black;
   box-sizing: border-box;
+  div {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    justify-content: flex-start;
+
+    label {
+      flex-basis: 50px;
+    }
+
+    input[type="range"] {
+      flex-grow: 2;
+    }
+
+    input[type="number"] {
+      flex-basis: 40px;
+      width: 40px;
+    }
+  }
 }
