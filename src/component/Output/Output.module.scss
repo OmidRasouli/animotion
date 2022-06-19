@@ -8,7 +8,6 @@
   animation-play-state: paused;
   animation-timing-function: linear;
   animation-delay: 0s;
-  width: 200px;
-  height: 200px;
   background-color: $accent_color;
+  transition: width 200ms linear, height 200ms linear;
 }
