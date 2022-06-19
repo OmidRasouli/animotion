@@ -1,18 +1,20 @@
-export default function Ruler({
-  orientation,
-  width,
-  height,
-}: {
-  orientation: string;
-  width: number;
-  height: number;
-}) {
-  const bigIntervals: number = 100;
-  const smallIntervals: number = 5;
+import { useEffect, useRef } from "react";
+import Canvas from "./Canvas";
+import style from "./Ruler.module.scss";
+
+export default function Ruler({ orientation }: { orientation: string }) {
+  const ruler = useRef<HTMLDivElement>(null);
 
   return (
-    <div>
-      <canvas></canvas>
+    <div
+      className={`${style.ruler} ${
+        orientation === "vertical"
+          ? style["center-canvas-vertical"]
+          : style["center-canvas-horizontal"]
+      }`}
+      ref={ruler}
+    >
+      <Canvas orientation={orientation} />
     </div>
   );
 }
