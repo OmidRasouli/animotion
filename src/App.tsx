@@ -5,6 +5,7 @@ import SideBar from "./component/SideBar/SideBar";
 import AnimationConfig from "./component/AnimationConfig/AnimationConfig";
 import Output from "./component/Output/Output";
 import { Config } from "./PublicFiles/Interfaces";
+import Ruler from "./component/Ruler/Ruler";
 
 export default function App() {
   const [animationTimer, setAnimationTimer] = useState<number>(0);
@@ -17,6 +18,8 @@ export default function App() {
       <div className={style.viewport}>
         <AnimationConfig SetAnimationConfig={setAnimationConfig} />
         <div className={style.result}>
+          <Ruler orientation="horizontal" />
+          <Ruler orientation="vertical" />
           <Output config={animationConfig} time={animationTimer} />
         </div>
         <SideBar />
