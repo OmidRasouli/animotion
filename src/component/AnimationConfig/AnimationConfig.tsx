@@ -25,7 +25,7 @@ export default function AnimationConfig({
         <label htmlFor="width">Width:</label>
         <input
           type={"range"}
-          min={1}
+          min={0}
           max={500}
           value={animationConfigState.width}
           onChange={(e) =>
@@ -39,7 +39,7 @@ export default function AnimationConfig({
         />
         <input
           type={"number"}
-          min={1}
+          min={0}
           max={500}
           id={"width"}
           value={animationConfigState.width}
