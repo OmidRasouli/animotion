@@ -22,7 +22,7 @@ export default function Output({
       <div
         className={`${style.output} custom-style`}
         style={{
-          animationDuration: `${config.duration}ms`,
+          animationDuration: `${config.duration}s`,
           animationDelay: `${-(config.duration * time) / 100}ms`,
           width: width,
           height: height,

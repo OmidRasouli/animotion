@@ -8,7 +8,7 @@ export default function AnimationConfig({
   SetAnimationConfig: Function;
 }) {
   const [animationConfigState, setAnimationConfigState] = useState<Config>({
-    duration: 0,
+    duration: 1,
     width: 100,
     height: 100,
     style: "",
@@ -86,10 +86,12 @@ export default function AnimationConfig({
         />
       </div>
       <div>
-        <label htmlFor="duration">Duration:</label>
+        <label htmlFor="duration">Duration(s):</label>
         <input
           type={"number"}
           id={"duration"}
+          defaultValue={1}
+          min={1}
           onChange={(e) =>
             SetConfig({
               config: {
