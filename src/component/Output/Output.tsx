@@ -6,21 +6,28 @@ export default function Output({
   time,
   width,
   height,
+  css,
 }: {
   config: Config;
   time: number;
   width: number;
   height: number;
+  css?: string;
 }) {
   return (
-    <div
-      className={style.output}
-      style={{
-        animationDuration: `${config.duration}ms`,
-        animationDelay: `${-(config.duration * time) / 100}ms`,
-        width: width,
-        height: height,
-      }}
-    ></div>
+    <>
+      <style>{`.custom-style {${css
+        ?.replaceAll("{", "")
+        .replaceAll("}", "")}}`}</style>
+      <div
+        className={`${style.output} custom-style`}
+        style={{
+          animationDuration: `${config.duration}s`,
+          animationDelay: `${-(config.duration * time) / 100}ms`,
+          width: width,
+          height: height,
+        }}
+      ></div>
+    </>
   );
 }

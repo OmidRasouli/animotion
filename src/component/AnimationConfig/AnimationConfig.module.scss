@@ -14,10 +14,13 @@
     color: $white;
 
     label {
-      flex-basis: 50px;
+      flex-basis: 70px;
+      width: 70px;
+      flex-grow: 1;
     }
 
-    input[type="range"] {
+    input[type="range"],
+    textarea {
       flex-grow: 2;
     }
 

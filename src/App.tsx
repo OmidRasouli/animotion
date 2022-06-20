@@ -10,9 +10,10 @@ import Ruler from "./component/Ruler/Ruler";
 export default function App() {
   const [animationTimer, setAnimationTimer] = useState<number>(0);
   const [animationConfig, setAnimationConfig] = useState<Config>({
-    duration: 0,
+    duration: 1,
     width: 100,
     height: 100,
+    style: "",
   });
 
   return (
@@ -27,6 +28,7 @@ export default function App() {
             time={animationTimer}
             width={animationConfig.width}
             height={animationConfig.height}
+            css={animationConfig.style}
           />
         </div>
         <SideBar />
