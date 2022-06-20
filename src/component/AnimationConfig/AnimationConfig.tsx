@@ -11,6 +11,7 @@ export default function AnimationConfig({
     duration: 0,
     width: 100,
     height: 100,
+    style: "",
   });
 
   const SetConfig = ({ config }: { config: Config }) => {
@@ -94,6 +95,24 @@ export default function AnimationConfig({
               config: {
                 ...animationConfigState,
                 duration: parseInt(e.target.value),
+              },
+            })
+          }
+        />
+      </div>
+      <div>
+        <label htmlFor="style">Style:</label>
+        <textarea
+          id={"style"}
+          rows={10}
+          placeholder={
+            "Properties which you are using in CSS.\nSample:\nborder-radius: 50%;\nbackground-color: blue;"
+          }
+          onChange={(e) =>
+            SetConfig({
+              config: {
+                ...animationConfigState,
+                style: e.target.value,
               },
             })
           }
