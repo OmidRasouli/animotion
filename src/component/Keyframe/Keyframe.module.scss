@@ -1,0 +1,19 @@
+@use "../../colors" as *;
+
+.keyframe {
+  width: 7px;
+  height: 7px;
+  border: 1px solid $black;
+  @include Gradient($white, $time_lines);
+  margin-bottom: -50px;
+  z-index: 100;
+  transform: rotate(45deg);
+  box-shadow: 0 0 1px 0 $white;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    @include Gradient($white, $accent_color);
+    box-shadow: 0 0 1px 0 $accent_color;
+  }
+}

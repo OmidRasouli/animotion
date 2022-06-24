@@ -1,3 +1,6 @@
+import { useState } from "react";
+import style from "./Keyframe.module.scss";
+
 export default function Keyframe() {
-  return <div></div>;
+  return <button className={`${style.keyframe}`}></button>;
 }
