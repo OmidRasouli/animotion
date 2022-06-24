@@ -1,8 +1,10 @@
 import { useState } from "react";
 import style from "./PropertyBox.module.scss";
+import data from "./properties.json";
 
 export default function PropertyBox({ items }: { items: Array<number> }) {
   const [menuState, setMenuState] = useState<string>("");
+  const properties: Array<string> = data.properties;
 
   return (
     <div className={style.propertyBox}>
@@ -20,18 +22,19 @@ export default function PropertyBox({ items }: { items: Array<number> }) {
           >
             +
           </button>
-          <ul className={`${style.propertyList} ${style[menuState]}`}>
-            <li>
-              <button onClick={(e) => console.log(e.currentTarget.value)}>
-                Background color
-              </button>
-            </li>
-            <li>
-              <button onClick={(e) => console.log("omid")}>
-                Border radius
-              </button>
-            </li>
-          </ul>
+          <div className={`${style.propertiesContainer} ${style[menuState]}`}>
+            <ul className={style.propertyList}>
+              {properties.map((d, key) => (
+                <li key={key}>
+                  <button
+                    onClick={(e) => console.log(e.currentTarget.innerHTML)}
+                  >
+                    {d}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
       <div className={style.items}>

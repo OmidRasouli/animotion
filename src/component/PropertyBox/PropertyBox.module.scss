@@ -38,42 +38,49 @@
         }
       }
 
-      .propertyList {
+      .propertiesContainer {
         width: 200px;
-        background-color: $white;
+        height: 300px;
         position: absolute;
-        bottom: calc(100% + 3px);
-        color: $black;
-        box-shadow: 0 0 8px 0 $black_overlay_50;
-        padding: 0;
-        margin: 0;
+        bottom: 100%;
+        z-index: 1000;
         pointer-events: none;
         opacity: 0;
+        overflow: auto;
+        background-color: $white;
 
         &.active {
           pointer-events: all;
           opacity: 1;
         }
 
-        li {
+        .propertyList {
+          width: 100%;
+          color: $black;
+          box-shadow: 0 0 8px 0 $black_overlay_50;
           padding: 0;
           margin: 0;
-          display: grid;
 
-          button {
-            padding: 5px;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            background-color: transparent;
-            outline: none;
-            border: none;
-            text-align-last: left;
-            transition: all 100ms;
+          li {
+            padding: 0;
+            margin: 0;
+            display: grid;
 
-            &:hover {
-              background-color: $accent_color;
-              color: $white;
+            button {
+              padding: 5px;
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
+              background-color: transparent;
+              outline: none;
+              border: none;
+              text-align-last: left;
+              transition: all 100ms;
+
+              &:hover {
+                background-color: $accent_color;
+                color: $white;
+              }
             }
           }
         }
@@ -97,4 +104,20 @@
       cursor: pointer;
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $time_lines;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary_color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $accent_color;
 }
