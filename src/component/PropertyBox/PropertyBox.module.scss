@@ -48,16 +48,28 @@
         opacity: 0;
         overflow: auto;
         background-color: $white;
+        box-shadow: 0 0 8px 0 $black_overlay_50;
 
         &.active {
           pointer-events: all;
           opacity: 1;
         }
 
+        .searchInput {
+          width: 100%;
+          line-height: 30px;
+          height: 30px;
+          border: none;
+          outline: none;
+          box-shadow: none;
+          border-bottom: 1px solid $time_lines;
+          padding: 5px;
+          box-sizing: border-box;
+        }
+
         .propertyList {
           width: 100%;
           color: $black;
-          box-shadow: 0 0 8px 0 $black_overlay_50;
           padding: 0;
           margin: 0;
 

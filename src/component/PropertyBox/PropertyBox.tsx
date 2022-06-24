@@ -5,6 +5,7 @@ import data from "./properties.json";
 export default function PropertyBox({ items }: { items: Array<number> }) {
   const [menuState, setMenuState] = useState<string>("");
   const properties: Array<string> = data.properties;
+  const [search, setSearch] = useState<Array<string>>(properties);
 
   return (
     <div className={style.propertyBox}>
@@ -23,8 +24,19 @@ export default function PropertyBox({ items }: { items: Array<number> }) {
             +
           </button>
           <div className={`${style.propertiesContainer} ${style[menuState]}`}>
+            <input
+              type={"search"}
+              id="propertySearch"
+              className={style.searchInput}
+              placeholder="Search"
+              onChange={(e) => {
+                setSearch(
+                  properties.filter((x) => x.includes(e.currentTarget.value))
+                );
+              }}
+            />
             <ul className={style.propertyList}>
-              {properties.map((d, key) => (
+              {search.map((d, key) => (
                 <li key={key}>
                   <button
                     onClick={(e) => console.log(e.currentTarget.innerHTML)}
