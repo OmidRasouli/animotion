@@ -21,6 +21,7 @@ export default function AnimationConfig({
 
   return (
     <div className={style["animation-config"]}>
+      <div>Predefined values:</div>
       <div>
         <label htmlFor="width">Width:</label>
         <input
